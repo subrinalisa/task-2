@@ -1,0 +1,279 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+/*--------------------------------------------------------------------
+Global
+---------------------------------------------------------------------*/
+$text-color: #3e3e3e;
+$orange :#e54c2a;
+$scrollbar-color: gray;
+
+@mixin fonts($size, $weight, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin transition {
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    @include fonts(16px, 400, $text-color);
+    background: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $scrollbar-color;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+    margin: 0;
+}
+
+small {
+    font-size: 12px;
+}
+
+a,
+a:hover {
+    color: $orange;
+    text-decoration: none;
+}
+
+i,
+svg {
+    display: inline-block;
+    pointer-events: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.btn {
+    font-family: 'Open Sans', sans-serif;
+    @include transition;
+}
+
+.btn:focus,
+.navbar-toggler:focus,
+.form-control:focus,
+.form-select:focus,
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+/*--------------------------------------------------------------------
+Preloader
+---------------------------------------------------------------------*/
+#preloader {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.loader-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader {
+    background: rgba(113, 64, 141, 0.1);
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border: 25px solid transparent;
+    border-top-color: $orange;
+    border-style: double;
+    border-radius: 50%;
+    box-shadow: 0 0 15px -5px rgba(0, 0, 0, 0.3);
+    animation: animate 2s infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*--------------------------------------------------------------------
+Scroll Up
+---------------------------------------------------------------------*/
+#scrollUp {
+    color: #fff !important;
+    line-height: 30px;
+    padding: 0;
+    border-radius: 5px 5px 0 0;
+    background: $orange;
+    height: 30px;
+    margin-bottom: 0;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 100 !important;
+}
+
+#scrollUp:hover {
+    height: 50px;
+}
+
+/*--------------------------------------------------------------------
+Header
+---------------------------------------------------------------------*/
+header {
+    .navbar {
+        padding: 16px 0;
+        border-top: 5px solid $orange;
+    }
+
+    .nav-link {
+        color: $text-color;
+        @include transition();
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: $orange;
+    }
+
+}
+
+/*--------------------------------------------------------------------
+Slider
+---------------------------------------------------------------------*/
+.slider {
+    background: url(../images/banner_bg.jpg) no-repeat center/cover;
+    padding: 100px 0;
+    min-height: 100vh;
+
+    .carousel-item {
+        p {
+            margin: 16px 0;
+        }
+    }
+}
+
+.btn-orange {
+    min-width: 120px;
+    color: #fff;
+    border: 1px solid $orange;
+    background: $orange;
+}
+
+.btn-orange:hover {
+    color: $orange;
+    background: transparent;
+}
+
+.btn-outline-orange {
+    min-width: 120px;
+    color: $orange;
+    border: 1px solid $orange;
+    background: transparent;
+}
+
+.btn-outline-orange:hover {
+    color: #fff;
+    background: $orange;
+}
+
+/*--------------------------------------------------------------------
+Footer
+---------------------------------------------------------------------*/
+footer {
+    padding: 100px 0;
+    border-top: 1px solid #d5d5d5;
+}
+
+.footer-single {
+    h2 {
+        @include fonts(20px, 700, $orange);
+        margin-bottom: 30px;
+    }
+
+    p {
+        font-weight: 700;
+    }
+
+    .list-inline {
+        margin: 16px 0;
+    }
+
+    .list-unstyled {
+        a {
+            @include fonts(16px, 700, #000);
+            margin-bottom: 8px;
+            display: block;
+        }
+    }
+}
